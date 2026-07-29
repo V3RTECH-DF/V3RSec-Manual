@@ -2,10 +2,10 @@ title: V3RSec
 description: "Manual do usuário do V3RSec — monitoramento de segurança e detecção de vazamento de dados, pela V3RTECH."
 lang: pt-BR
 
-# GitHub Pages padrão (project page). Sem domínio próprio por ora → baseurl obrigatório
-# para os assets/links resolverem em https://v3rtech-df.github.io/v3rsec-manual/.
-url: https://v3rtech-df.github.io
-baseurl: /v3rsec-manual
+# Domínio próprio (docs.v3rsec.v3rtech.com.br via CNAME) → servido na RAIZ, SEM baseurl.
+# Com baseurl vazio, os assets/links do tema resolvem em https://docs.v3rsec.v3rtech.com.br/.
+url: https://docs.v3rsec.v3rtech.com.br
+baseurl: ""
 permalink: pretty
 
 remote_theme: just-the-docs/just-the-docs
@@ -60,7 +60,7 @@ aux_links:
 aux_links_new_tab: true
 
 # Rodapé
-footer_content: '© 2026 <a href="https://v3rtech.com.br/" target="_blank" rel="noopener">V3RTECH</a>. Todos os direitos reservados. · <a href="/v3rsec-manual/referencia/privacidade-e-termos/">Privacidade e Termos</a>'
+footer_content: '© 2026 <a href="https://v3rtech.com.br/" target="_blank" rel="noopener">V3RTECH</a>. Todos os direitos reservados. · <a href="/referencia/privacidade-e-termos/">Privacidade e Termos</a>'
 last_edit_timestamp: false
 back_to_top: true
 back_to_top_text: "Voltar ao topo"

@@ -1,8 +1,7 @@
 # Manual do usuário — V3RSec
 
 Site do manual do usuário do **V3RSec** (monitoramento de segurança e detecção de vazamento de
-dados da V3RTECH). Publicado via **GitHub Pages** em
-<https://v3rtech-df.github.io/v3rsec-manual/>.
+dados da V3RTECH). Publicado via **GitHub Pages** em <https://docs.v3rsec.v3rtech.com.br/>.
 
 - **Stack:** Jekyll + tema [just-the-docs](https://just-the-docs.com) (remote theme).
 - **Design-system:** oficial da V3RTECH (mesmo do V3REvent — cores, tipografia Exo 2/Inter).
@@ -16,7 +15,7 @@ dados da V3RTECH). Publicado via **GitHub Pages** em
 ```bash
 bundle install
 bundle exec jekyll serve
-# abre http://127.0.0.1:4000/v3rsec-manual/
+# abre http://127.0.0.1:4000/
 ```
 
 ## Publicar

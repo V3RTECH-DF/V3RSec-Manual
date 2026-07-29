@@ -1,0 +1,19 @@
+<link rel="icon" type="image/svg+xml" href="{{ '/assets/favicon.svg' | relative_url }}">
+<!-- Tipografia da marca V3RTECH (design-system §4): Exo 2 (títulos) + Inter (corpo). -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<script>
+  // Abre todos os links externos (para outro host) em uma nova aba.
+  document.addEventListener('DOMContentLoaded', function () {
+    var host = window.location.host;
+    document.querySelectorAll('a[href^="http"]').forEach(function (a) {
+      try {
+        if (a.host && a.host !== host) {
+          a.setAttribute('target', '_blank');
+          a.setAttribute('rel', 'noopener noreferrer');
+        }
+      } catch (e) {}
+    });
+  });
+</script>

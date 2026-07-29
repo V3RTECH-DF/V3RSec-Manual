@@ -1,0 +1,18 @@
+// Esquema de cores V3REvent — alinhado ao design-system oficial do plugin
+// (projeto/docs/design-system.md §3 e §6). Segue o mesmo princípio do V3RProp:
+// a cor de marca principal (brand-primary) rege links, botões e navegação.
+//
+// Marca:
+//   brand-primary #1e2d2b  -> navegação, botões primários, links, foco, títulos (§3.1)
+//   brand-accent  #c2272d  -> realce/CTA COMEDIDO (não é cor de link/botão geral) (§3.1)
+//   brand-amber   #da8c1c  -> detalhes/ícones
+// Neutros: escala Slate do Tailwind (§3.2).
+
+$link-color:            #1e2d2b; // brand-primary — links e ações textuais (§6.1)
+$btn-primary-color:     #1e2d2b; // brand-primary — botões primários (§6)
+$body-heading-color:    #1e2d2b; // brand-primary — títulos (§3.1)
+$body-text-color:       #1e293b; // slate-800 — texto principal (§3.2)
+$nav-child-link-color:  #475569; // slate-600 — navegação secundária
+$sidebar-color:         #f8fafc; // slate-50 — fundo da barra lateral (§3.2)
+$border-color:          #e2e8f0; // slate-200 — bordas/divisórias (§3.2)
+$code-background-color: #f1f5f9; // slate-100 — fundo de código

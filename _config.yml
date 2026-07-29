@@ -1,0 +1,75 @@
+title: V3RSec
+description: "Manual do usuário do V3RSec — monitoramento de segurança e detecção de vazamento de dados, pela V3RTECH."
+lang: pt-BR
+
+# GitHub Pages padrão (project page). Sem domínio próprio por ora → baseurl obrigatório
+# para os assets/links resolverem em https://v3rtech-df.github.io/v3rsec-manual/.
+url: https://v3rtech-df.github.io
+baseurl: /v3rsec-manual
+permalink: pretty
+
+remote_theme: just-the-docs/just-the-docs
+plugins:
+  - jekyll-remote-theme
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+# Tema / cor — design-system oficial da V3RTECH (mesmo do V3REvent; só a logo muda).
+color_scheme: v3rsec
+logo: "/assets/logo.svg"
+
+# Busca
+search_enabled: true
+search:
+  heading_level: 3
+  previews: 3
+  preview_words_before: 5
+  preview_words_after: 10
+  tokenizer_separator: /[\s/]+/
+  rel_url: true
+  button: false
+
+heading_anchors: true
+
+# Callouts (admonitions)
+callouts:
+  note:
+    title: Nota
+    color: blue
+  tip:
+    title: Boas práticas
+    color: green
+  warning:
+    title: Atenção
+    color: yellow
+  important:
+    title: Importante
+    color: red
+  example:
+    title: Exemplo
+    color: purple
+
+# Links auxiliares (canto superior direito)
+aux_links:
+  "V3RTECH":
+    - "https://v3rtech.com.br"
+aux_links_new_tab: true
+
+# Rodapé
+footer_content: '© 2026 <a href="https://v3rtech.com.br/" target="_blank" rel="noopener">V3RTECH</a>. Todos os direitos reservados. · <a href="/v3rsec-manual/referencia/privacidade-e-termos/">Privacidade e Termos</a>'
+last_edit_timestamp: false
+back_to_top: true
+back_to_top_text: "Voltar ao topo"
+
+# Excluir do build
+exclude:
+  - "*.sh"
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - assets/README-screenshots.md

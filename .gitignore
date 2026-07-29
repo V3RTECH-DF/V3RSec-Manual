@@ -1,0 +1,17 @@
+# Jekyll
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# Ruby
+vendor/
+Gemfile.lock
+.bundle/
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Artefatos de E2E (scratch, não fazem parte do manual)
+_e2e*/

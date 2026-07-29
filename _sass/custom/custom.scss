@@ -1,0 +1,25 @@
+// CSS final (importado depois dos módulos do tema).
+// Títulos/display em Exo 2 (design-system §4); o corpo (Inter) vem de custom/setup.scss.
+
+$v3rsec-display: "Exo 2", "Inter", "Roboto", system-ui, sans-serif;
+
+h1, h2, h3, h4, h5, h6,
+.text-alpha, .text-beta, .text-gamma, .text-delta, .text-epsilon, .text-zeta {
+  font-family: $v3rsec-display;
+}
+
+// A logo do produto no cabeçalho lateral também é do domínio "display".
+.site-title {
+  font-family: $v3rsec-display;
+}
+
+// Links de conteúdo: como a cor de marca (#1e2d2b) é escura e próxima do texto,
+// reforça-se o sublinhado na própria cor da marca para que o link continue
+// legível como elemento interativo (o tema já sublinha, mas em cinza claro).
+.main-content a:not([class]) {
+  text-decoration-color: rgba(#1e2d2b, 0.4);
+
+  &:hover {
+    text-decoration-color: rgba(#1e2d2b, 0.75);
+  }
+}

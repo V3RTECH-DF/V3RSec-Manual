@@ -1,0 +1,6 @@
+// Override de variáveis do just-the-docs (importado ANTES dos módulos).
+// Tipografia do corpo/UI = Inter (design-system §4). Os títulos viram Exo 2
+// em _sass/custom/custom.scss. Fallback: Roboto -> sans-serif do sistema.
+$body-font-family: "Inter", "Roboto", system-ui, -apple-system, "Segoe UI",
+  helvetica, arial, sans-serif;
+$mono-font-family: "SFMono-Regular", menlo, consolas, monospace;

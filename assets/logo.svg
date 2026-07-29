@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" role="img" aria-label="V3RSec (logo provisória)">
+  <!-- PLACEHOLDER — logo definitiva do V3RSec ainda não criada. Substituir este arquivo. -->
+  <rect x="1" y="1" width="46" height="46" rx="9" fill="#1e2d2b"/>
+  <text x="24" y="31" text-anchor="middle" font-family="'Exo 2',Inter,system-ui,sans-serif" font-size="20" font-weight="700" fill="#ffffff">V3</text>
+  <text x="60" y="31" font-family="'Exo 2',Inter,system-ui,sans-serif" font-size="22" font-weight="700" fill="#1e2d2b">V3RSec</text>
+  <rect x="1" y="1" width="46" height="46" rx="9" fill="none" stroke="#da8c1c" stroke-width="1.5"/>
+</svg>

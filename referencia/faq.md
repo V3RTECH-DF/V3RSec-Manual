@@ -7,10 +7,12 @@ parent: Referência
 # Dúvidas frequentes (FAQ)
 
 **O V3RSec já está pronto para uso em produção?**
-Ainda não. Ele está na fatia de fundação: a espinha dorsal (coleta do V3RCondo,
-autenticação integrada, RBAC, multi-tenant) existe, mas detecção fina, envio de alertas e
-as telas com dados reais ainda estão sendo construídas. Veja
-[Estado atual e limitações](estado-atual-e-limitacoes.md).
+Ainda não. A espinha dorsal já funciona de verdade: o login (via Logto) autentica ponta a
+ponta, a coleta do V3RCondo persiste eventos reais, e RBAC/multi-tenant estão validados. O
+que falta é o que o produto promete de diferencial — **detecção fina** (nenhuma regra roda
+sobre os eventos ainda) e **envio real de alertas** (nada sai hoje, nem push, nem e-mail, nem
+webhook) — e as telas de operação ainda mostram dados de exemplo, não o resultado da coleta
+real. Veja [Estado atual e limitações](estado-atual-e-limitacoes.md).
 
 **Por que não consigo fazer login?**
 Quase sempre porque o [bootstrap do Logto](../admin/bootstrap-logto.md) ainda não foi feito.

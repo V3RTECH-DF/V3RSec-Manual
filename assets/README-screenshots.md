@@ -35,5 +35,5 @@ do dono do próprio ambiente, autorizado pelo enunciado da tarefa.
 - A skill **nunca faz login** e não captura estas telas automaticamente. Quem autentica e
   captura é o usuário/operador.
 - Evite timestamps e dados chamativos nas capturas; se um print sair ruim, basta refazer.
-- Enquanto os PNGs não existirem, o site MkDocs mostrará imagens quebradas nessas páginas —
+- Enquanto os PNGs não existirem, o site Jekyll mostrará imagens quebradas nessas páginas —
   é o comportamento esperado do roteiro de prints até a captura acontecer.

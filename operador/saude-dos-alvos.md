@@ -26,7 +26,7 @@ Para cada alvo monitorado, você vê:
 - **Última coleta** — quando o V3RSec recebeu sinal daquele alvo pela última vez.
 - **Status** — um selo colorido indicando a situação da coleta.
 
-![Saúde dos alvos no desktop](/assets/saude-alvos-01.png)
+`TODO captura: Saúde dos alvos no desktop`
 
 ## Como conferir a saúde de um alvo
 
@@ -102,7 +102,7 @@ avisado de que a vigilância caiu do que descobrir isso só depois de um inciden
 A mesma tela se adapta ao celular (mobile-first), para você conferir a saúde dos alvos em
 trânsito.
 
-![Saúde dos alvos no celular](/assets/saude-alvos-02.png)
+`TODO captura: Saúde dos alvos no celular`
 
 ## Estado atual desta tela
 

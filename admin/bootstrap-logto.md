@@ -71,7 +71,7 @@ No V3RSec, **uma organização do Logto corresponde a um tenant**. Crie a organi
 **V3RTECH** (o tenant 0). É ela que, no futuro, permite isolar clientes externos em tenants
 próprios.
 
-![Tela de configurações da organização V3RTECH no console do Logto, com os campos Nome e Descrição preenchidos](../assets/bootstrap-logto-02.png)
+![Tela de configurações da organização V3RTECH no console do Logto, com os campos Nome e Descrição preenchidos](/assets/bootstrap-logto-02.png)
 
 Anote o **Organization ID** que o Logto gera — você vai precisar dele no passo 6. Neste
 ambiente ele saiu como `or2ivomanag5`; o seu vai ser outro, gerado a cada instalação.
@@ -84,7 +84,7 @@ Dentro da organização, crie os papéis de organização com **estes três nome
 - `admin_plataforma`
 - `visualizador`
 
-![Lista de papéis de organização no console do Logto mostrando os três papéis criados: admin_plataforma, operador_seguranca e visualizador](../assets/bootstrap-logto-03.png)
+![Lista de papéis de organização no console do Logto mostrando os três papéis criados: admin_plataforma, operador_seguranca e visualizador](/assets/bootstrap-logto-03.png)
 
 > **Atenção — o nome tem que bater exatamente.** O V3RSec lê o nome do papel como claim do
 > token e casa com uma tabela de mapeamento no banco (`idp_role_mappings`). Nome divergente
@@ -103,7 +103,7 @@ Ainda no console, vá em **User management** e crie o usuário que vai logar no 
 e-mail e a senha da pessoa que vai operar a plataforma). Este é o usuário do tenant
 `default` — o que importa para o produto, diferente da conta do passo 1.
 
-![Tela de detalhes do usuário no console do Logto, com o perfil mostrando nome e e-mail preenchidos](../assets/bootstrap-logto-04.png)
+![Tela de detalhes do usuário no console do Logto, com o perfil mostrando nome e e-mail preenchidos](/assets/bootstrap-logto-04.png)
 
 ### 5. Adicionar o usuário à organização e atribuir os papéis
 
@@ -116,7 +116,7 @@ sem que a pessoa possa fazer nada, e não há aviso disso em lugar nenhum:
    papel(is) que essa pessoa deve ter (`operador_seguranca`, `admin_plataforma` ou
    `visualizador`).
 
-![Tela de membros da organização V3RTECH no console do Logto, com o menu de ações do membro aberto mostrando as opções de edição de papéis](../assets/bootstrap-logto-05.png)
+![Tela de membros da organização V3RTECH no console do Logto, com o menu de ações do membro aberto mostrando as opções de edição de papéis](/assets/bootstrap-logto-05.png)
 
 ### 6. Vincular a organização ao tenant do V3RSec (banco de dados)
 
@@ -146,7 +146,7 @@ gera um **App ID** — copie-o para a variável `VITE_LOGTO_APP_ID` no seu `.env
 Logto não usam client secret; o App ID é público.) Neste ambiente o App ID saiu como
 `5hhp30h3qztxjhvtsrph6`; o seu vai ser outro.
 
-![Lista de aplicativos no console do Logto mostrando o aplicativo V3RSec PWA cadastrado como Single Page App](../assets/bootstrap-logto-06.png)
+![Lista de aplicativos no console do Logto mostrando o aplicativo V3RSec PWA cadastrado como Single Page App](/assets/bootstrap-logto-06.png)
 
 > **A porta do redirect é a porta em que o PWA foi publicado, não uma porta fixa.** O código
 > monta a URL de redirect a partir da origem do navegador — se o PWA subiu em `8081`, o
@@ -158,7 +158,7 @@ Logto não usam client secret; o App ID é público.) Neste ambiente o App ID sa
 > **mesma** origem em **CORS allowed origins**. Redirect com a porta errada dá erro do Logto
 > na volta do login ("redirect URI mismatch"), fácil de confundir com problema de App ID.
 
-![Tela de configurações do aplicativo V3RSec PWA no console do Logto, mostrando os campos Redirect URIs, Post sign-out redirect URIs e CORS allowed origins preenchidos com a porta 8081](../assets/bootstrap-logto-07.png)
+![Tela de configurações do aplicativo V3RSec PWA no console do Logto, mostrando os campos Redirect URIs, Post sign-out redirect URIs e CORS allowed origins preenchidos com a porta 8081](/assets/bootstrap-logto-07.png)
 
 ### 8. Registrar o recurso de API do backend
 
@@ -166,7 +166,7 @@ Crie um **API Resource** no Logto com exatamente o mesmo identificador configura
 `LOGTO_API_RESOURCE` (padrão `urn:v3rsec:api`). É esse "audience" que o backend Deno valida
 no token OIDC (via JWKS) para autorizar as chamadas do PWA.
 
-![Tela de detalhes do recurso de API no console do Logto, mostrando o identificador urn:v3rsec:api preenchido](../assets/bootstrap-logto-08.png)
+![Tela de detalhes do recurso de API no console do Logto, mostrando o identificador urn:v3rsec:api preenchido](/assets/bootstrap-logto-08.png)
 
 ### 9. Reconstruir o PWA (App ID é lido em tempo de build)
 

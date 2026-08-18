@@ -23,7 +23,7 @@ Cada ocorrência carrega:
 - **Evidência vinculada** — os eventos de origem que sustentam a detecção.
 - **Status** — nova, em análise, tratada ou falso-positivo.
 
-![Fila de ocorrências](../assets/fila-ocorrencias-01.png)
+![Fila de ocorrências](/assets/fila-ocorrencias-01.png)
 
 ## Como você trabalha a fila
 

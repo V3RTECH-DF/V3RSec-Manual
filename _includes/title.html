@@ -1,0 +1,18 @@
+{%- comment -%}
+  Override de _includes/title.html do just-the-docs (mecanismo padrão de
+  override do Jekyll — arquivo do site com o mesmo caminho do tema vence,
+  sem editar o tema em si).
+
+  Por quê: o title.html original do tema mostra OU o logo OU o texto do
+  site.title, nunca os dois (veja o fonte do tema: `{% if site.logo %}
+  <div class="site-logo">...</div> {% else %} {{ site.title }} {% endif %}`).
+  Como o header da barra lateral tem ~36px de altura, a versão horizontal do
+  logo (que precisa de 160px de largura para o slogan ficar legível —
+  design-system §13.3) não cabe; a versão ÍCONE cabe (é literalmente um dos
+  usos previstos para ela, "barra superior estreita" — §13.1). Mas ícone
+  sozinho não diz "V3RSec" a quem chega na página — por isso os dois juntos
+  aqui: ícone da marca + nome do produto como texto real (não embutido na
+  imagem), estilizados em custom.scss (.site-logo / .site-title-text).
+{%- endcomment -%}
+<div class="site-logo" role="img" aria-label="{{ site.title }}"></div>
+<span class="site-title-text">{{ site.title }}</span>

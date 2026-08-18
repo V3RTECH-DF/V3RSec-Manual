@@ -28,7 +28,7 @@ canais:
 - Ver os avisos recebidos, com estado **lido / não-lido**.
 - Clicar no aviso para abrir a **ocorrência** correspondente e investigar.
 
-![Central de notificações](../assets/central-notificacoes-01.png)
+![Central de notificações](/assets/central-notificacoes-01.png)
 
 ## Anti-flood: um incidente não vira cem avisos
 

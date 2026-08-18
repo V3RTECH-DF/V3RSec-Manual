@@ -1,10 +1,28 @@
+<!-- Favicon: SVG para navegadores modernos + apple-touch-icon para a tela de
+     início do iOS. O fallback .ico para quem não entende SVG (Safari antigo e
+     afins) já sai sozinho: _includes/favicon.html do próprio tema detecta
+     /favicon.ico na raiz (colocado ali de propósito) e injeta o <link>
+     correspondente antes deste include rodar — não precisa duplicar aqui.
+     Os três arquivos derivam do mesmo ícone de marca (design-system §13.1/
+     §14), gerados localmente porque favicon é sempre arquivo próprio do
+     site, nunca link remoto. -->
 <link rel="icon" type="image/svg+xml" href="{{ '/assets/favicon.svg' | relative_url }}">
-<!-- Tipografia da marca V3RTECH (design-system §4): Exo 2 (títulos) + Inter (corpo). -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="apple-touch-icon" href="{{ '/assets/apple-touch-icon.png' | relative_url }}">
+
+<!-- Tipografia da marca V3RSec (design-system §6): Exo 2 (títulos) + Open Sans
+     (corpo), auto-hospedadas em /assets/fonts (declaração @font-face em
+     _sass/custom/custom.scss). Nada de fonts.googleapis.com — CDN de fonte
+     entregaria IP e referer de quem consulta o manual a um terceiro (§6.1).
+     Preload só do subconjunto "latin" (cobre os acentos do PT-BR — U+00C0–00FF
+     já está nele): é o que está no caminho crítico da primeira tela. O
+     "latin-ext" carrega sob demanda, se algum caractere raro aparecer. -->
+<link rel="preload" href="{{ '/assets/fonts/exo2-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ '/assets/fonts/opensans-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
 <script>
-  // Abre todos os links externos (para outro host) em uma nova aba.
+  /* Abre todos os links externos (para outro host) em uma nova aba.
+     Comentário de bloco, não "//": se o Jekyll/Pages minificar o HTML publicado
+     numa única linha, um comentário "//" comentaria o resto do <script> inteiro
+     (referências/stacks.md do manual). */
   document.addEventListener('DOMContentLoaded', function () {
     var host = window.location.host;
     document.querySelectorAll('a[href^="http"]').forEach(function (a) {

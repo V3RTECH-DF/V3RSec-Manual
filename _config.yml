@@ -18,9 +18,13 @@ defaults:
     values:
       layout: default
 
-# Tema / cor — design-system oficial da V3RTECH (mesmo do V3REvent; só a logo muda).
+# Tema / cor — design-system próprio do V3RSec (Projeto/docs/v3rsec-design-system.md).
+# Ícone da marca, não a horizontal: o cabeçalho da barra lateral tem ~36px de
+# altura, abaixo do mínimo em que a horizontal com slogan fica legível (§13.3).
+# URL do bucket, não cópia local — é superfície externa (§14.1), e centraliza
+# a atualização quando o logo trocar.
 color_scheme: v3rsec
-logo: "/assets/logo.svg"
+logo: "https://assets.v3rsec.v3rtech.com.br/v3rsec-logo-icone.svg"
 
 # Busca
 search_enabled: true

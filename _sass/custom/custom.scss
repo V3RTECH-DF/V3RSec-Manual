@@ -1,25 +1,287 @@
-// CSS final (importado depois dos módulos do tema).
-// Títulos/display em Exo 2 (design-system §4); o corpo (Inter) vem de custom/setup.scss.
+// CSS final (importado por último, depois de todos os módulos do tema —
+// _includes/css/just-the-docs.scss.liquid faz `@import "./custom/custom"`
+// como a última linha da cadeia). É por isso que dá para sobrescrever regra
+// do tema aqui sem editar o tema: especificidade igual, ordem de import
+// decide, e a nossa vem depois.
+//
+// Fonte dos tokens: Projeto/docs/v3rsec-design-system.md. Este bloco declara
+// as custom properties do tema CLARO (o manual não tem alternância de tema —
+// ver relatório) e todo o CSS abaixo consome var(--v3r-...), nunca hex solto,
+// EXCETO onde apontado com comentário (as variáveis Sass do arquivo irmão
+// color_schemes/v3rsec.scss, que precisam de hex literal por causa de
+// darken()/lighten() do próprio tema).
 
-$v3rsec-display: "Exo 2", "Inter", "Roboto", system-ui, sans-serif;
+:root {
+  // Superfícies e texto (design-system §4.2, tema claro)
+  --v3r-color-superficie-afundada: #e8edec;
+  --v3r-color-superficie-base: #f2f5f4;
+  --v3r-color-superficie: #ffffff;
+  --v3r-color-superficie-elevada: #ffffff;
+  --v3r-color-texto-primario: #14211f;
+  --v3r-color-texto-secundario: #445956;
+  --v3r-color-texto-terciario: #666666;
+  --v3r-color-texto-desabilitado: #8a9694;
+  --v3r-color-borda-sutil: #dce3e2;
+  --v3r-color-borda: #c4cfcd;
+  --v3r-color-borda-interativa: #7a8a87;
 
-h1, h2, h3, h4, h5, h6,
-.text-alpha, .text-beta, .text-gamma, .text-delta, .text-epsilon, .text-zeta {
-  font-family: $v3rsec-display;
+  // Ouro: identidade e ação primária (design-system §4.3, tema claro)
+  --v3r-color-acao-primaria: #e6a61c;
+  --v3r-color-acao-primaria-hover: #f0b434;
+  --v3r-color-acao-primaria-ativa: #c97d14;
+  --v3r-color-acao-primaria-texto: #14211f;
+  --v3r-color-marca-ouro-texto: #8a5b00;
+  --v3r-color-marca-ouro-borda: #b37a00;
+  --v3r-color-marca-ouro-suave: #fbefd6;
+  --v3r-color-foco: #b37a00;
+
+  // Superfícies de interação (design-system §4.8, tema claro)
+  --v3r-color-interacao-hover: rgb(20 33 31 / 0.05);
+  --v3r-color-interacao-ativa: rgb(20 33 31 / 0.09);
+  --v3r-color-interacao-selecionada: rgb(138 91 0 / 0.1);
+
+  // Espaçamento e forma reaproveitados do design-system (§7, §8, §10)
+  --v3r-radius-m: 8px;
+  --v3r-border-media: 2px;
+
+  // Tipografia (design-system §6.3)
+  --v3r-font-display: "Exo 2", "Segoe UI", system-ui, -apple-system, "Roboto",
+    "Helvetica Neue", Arial, sans-serif;
+  --v3r-font-corpo: "Open Sans", system-ui, -apple-system, "Segoe UI", "Roboto",
+    "Helvetica Neue", Arial, sans-serif;
+  --v3r-font-mono: ui-monospace, "SFMono-Regular", "SF Mono", menlo, consolas,
+    "Liberation Mono", monospace;
 }
 
-// A logo do produto no cabeçalho lateral também é do domínio "display".
-.site-title {
-  font-family: $v3rsec-display;
+// ---------------------------------------------------------------------------
+// Fontes auto-hospedadas (design-system §6.1–§6.3). Nada de fonts.googleapis.com
+// — CDN de terceiro no caminho de carregamento vaza IP e referer de quem
+// consulta o manual, e é proibido sem exceção para "landing" (§6.1).
+//
+// Um arquivo por família+subconjunto (fonte variável, eixo wght, cobrindo os
+// dois pesos pedidos com uma requisição por subconjunto): Google serve o
+// MESMO arquivo woff2 para peso 600 e 700 de "Exo 2" (e para 400/600 de
+// "Open Sans") quando a família é variável — confirmado batendo os dois
+// pedidos contra a API do Google Fonts antes de baixar. Por isso cada
+// declaração abaixo usa `font-weight: <mín> <máx>` com format
+// woff2-variations, exatamente como o design-system pede em §6.3.
+//
+// unicode-range por subconjunto (latin / latin-ext), em vez de um único range
+// mesclado: é o particionamento padrão que o próprio Google usa, preserva o
+// carregamento preguiçoso (o navegador só baixa o arquivo latin-ext se a
+// página tiver um caractere fora do latin básico) e chega ao mesmo resultado
+// que o design-system pede — só latin+latin-ext, nada de cyrillic/vietnamese.
+@font-face {
+  font-family: "Exo 2";
+  src: url("/assets/fonts/exo2-latin.woff2") format("woff2-variations");
+  font-weight: 600 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-// Links de conteúdo: como a cor de marca (#1e2d2b) é escura e próxima do texto,
-// reforça-se o sublinhado na própria cor da marca para que o link continue
-// legível como elemento interativo (o tema já sublinha, mas em cinza claro).
+@font-face {
+  font-family: "Exo 2";
+  src: url("/assets/fonts/exo2-latin-ext.woff2") format("woff2-variations");
+  font-weight: 600 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7,
+    U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F,
+    U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("/assets/fonts/opensans-latin.woff2") format("woff2-variations");
+  font-weight: 400 600;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("/assets/fonts/opensans-latin-ext.woff2") format("woff2-variations");
+  font-weight: 400 600;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7,
+    U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F,
+    U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+
+// ---------------------------------------------------------------------------
+// Títulos em Exo 2 — só onde o tamanho renderizado é ≥18px (design-system
+// §6.4: "Exo 2 só acima de 18px; abaixo disso perde legibilidade em tela
+// pequena com pouca luz"). Na escala do just-the-docs isso é h1 (32px) e h2
+// (18px, que é exatamente o tamanho do token titulo-p §6.4). h3 (16px) para
+// baixo NÃO entra — ficam em Open Sans (herdado de $body-font-family), só
+// com mais peso para manter alguma hierarquia. É a razão de este bloco não
+// ser um `h1, h2, h3, h4, h5, h6 { font-family: ... }` genérico.
+h1,
+.text-alpha {
+  font-family: var(--v3r-font-display);
+  font-weight: 700;
+  color: var(--v3r-color-texto-primario);
+}
+
+h2,
+.text-beta,
+#toctitle {
+  font-family: var(--v3r-font-display);
+  font-weight: 600;
+  color: var(--v3r-color-texto-primario);
+}
+
+h3,
+.text-gamma {
+  font-weight: 600;
+  color: var(--v3r-color-texto-primario);
+}
+
+h4,
+h5,
+h6,
+.text-delta,
+.text-epsilon,
+.text-zeta {
+  color: var(--v3r-color-texto-primario);
+}
+
+// Links de conteúdo: a cor de marca aqui já é o ouro escurecido para texto
+// (--v3r-color-marca-ouro-texto), então o sublinhado reforça a própria cor da
+// marca em vez do cinza claro padrão do tema.
 .main-content a:not([class]) {
-  text-decoration-color: rgba(#1e2d2b, 0.4);
+  text-decoration-color: rgb(138 91 0 / 0.4);
 
   &:hover {
-    text-decoration-color: rgba(#1e2d2b, 0.75);
+    text-decoration-color: rgb(138 91 0 / 0.75);
+  }
+}
+
+// Citações (design-system: use os tokens de superfície/borda, não um azul
+// genérico de navegador — o tema não estiliza blockquote por padrão).
+.main-content blockquote {
+  padding: 0.75rem 1rem;
+  color: var(--v3r-color-texto-secundario);
+  background-color: var(--v3r-color-superficie-afundada);
+  border-left: var(--v3r-border-media) solid var(--v3r-color-borda-interativa);
+  border-radius: 0 var(--v3r-radius-m) var(--v3r-radius-m) 0;
+}
+
+// ---------------------------------------------------------------------------
+// Cabeçalho da barra lateral: ícone + nome do produto por extenso.
+//
+// O tema (title.html) só renderiza UM dos dois — se site.logo existir, mostra
+// só a imagem (sem texto, com aria-label). Como o espaço disponível aqui é
+// ~36px de altura ("barra superior estreita", exatamente o caso de uso da
+// versão ÍCONE no design-system §13.1 — a horizontal com o slogan por extenso
+// só é legível a partir de 160px de largura, §13.3, e não cabe), sobrescrevi
+// _includes/title.html (mecanismo de override do Jekyll, não edição do tema)
+// para mostrar os dois juntos: ícone da marca + "V3RSec" como texto real, que
+// é o que dá contexto de "onde eu estou" sem forçar a horizontal comprimida.
+.site-logo {
+  width: 2.25rem; // ~36px — cabe no header-height do tema sem espremer
+  flex: none;
+}
+
+.site-title {
+  gap: 0.625rem;
+}
+
+.site-title-text {
+  font-family: var(--v3r-font-display);
+  font-size: 1.125rem; // 18px — mesmo piso do §6.4 para permitir Exo 2 aqui
+  font-weight: 600;
+  color: var(--v3r-color-texto-primario);
+  white-space: nowrap;
+}
+
+// ---------------------------------------------------------------------------
+// Estado de navegação: hover e item ativo usam os tokens de interação em vez
+// do gradiente cinza padrão do tema, e o texto usa o mesmo ouro-texto do
+// link de conteúdo (design-system §4.8 — camadas translúcidas, não cor opaca,
+// para funcionar sobre qualquer superfície).
+.nav-list .nav-list-item .nav-list-link {
+  &:hover,
+  &.active {
+    background-image: none;
+    background-color: var(--v3r-color-interacao-hover);
+  }
+
+  &.active {
+    background-color: var(--v3r-color-interacao-selecionada);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Botão primário "de verdade": preenchimento ouro + texto escuro por cima
+// (design-system §4.3 — é o único jeito correto de usar o ouro puro como
+// tinta em cima dele mesmo). O tema pinta .btn-primary com texto branco fixo
+// sobre $btn-primary-color (ver o comentário em color_schemes/v3rsec.scss);
+// aqui a classe é redeclarada por cima com a combinação correta, medida em
+// 7,76:1 (§4.9) — folga confortável mesmo no estado "ativa", que cai a
+// 4,39:1 e por isso não pode ficar sem esta declaração.
+.btn-primary {
+  color: var(--v3r-color-acao-primaria-texto);
+  background-color: var(--v3r-color-acao-primaria);
+
+  &:hover,
+  &.zeroclipboard-is-hover {
+    color: var(--v3r-color-acao-primaria-texto);
+    background-color: var(--v3r-color-acao-primaria-hover);
+  }
+
+  &:active,
+  &.selected,
+  &.zeroclipboard-is-active {
+    background-color: var(--v3r-color-acao-primaria-ativa);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Anel de foco da marca (design-system §12.1: dourado, :focus-visible (não
+// :focus — o anel não deve aparecer a cada clique de mouse), outline-offset
+// de 2px, nunca outline:none sem substituto medido). O tema usa outline:none
+// + box-shadow azul fixo em botão/campo de busca; como a cascata resolve por
+// especificidade+ordem e este arquivo é importado por último, as regras
+// abaixo (mesma especificidade das do tema) vencem sem precisar de !important.
+.btn:focus-visible,
+.btn-outline:focus-visible {
+  outline: var(--v3r-border-media) solid var(--v3r-color-foco);
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+.search-input:focus-visible {
+  outline: var(--v3r-border-media) solid var(--v3r-color-foco);
+}
+
+a:focus-visible,
+[tabindex]:focus-visible,
+.nav-list-expander:focus-visible {
+  outline: var(--v3r-border-media) solid var(--v3r-color-foco);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+// Movimento reduzido (design-system §11 — vale para qualquer HTML nosso, não
+// só o PWA): nada de transição/animação para quem pediu para o sistema
+// reduzir movimento.
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
   }
 }

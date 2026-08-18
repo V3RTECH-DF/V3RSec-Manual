@@ -1,6 +1,15 @@
-// Override de variáveis do just-the-docs (importado ANTES dos módulos).
-// Tipografia do corpo/UI = Inter (design-system §4). Os títulos viram Exo 2
-// em _sass/custom/custom.scss. Fallback: Roboto -> sans-serif do sistema.
-$body-font-family: "Inter", "Roboto", system-ui, -apple-system, "Segoe UI",
-  helvetica, arial, sans-serif;
-$mono-font-family: "SFMono-Regular", menlo, consolas, monospace;
+// Override de variáveis do just-the-docs (importado ANTES dos módulos do
+// tema — é o único ponto da cadeia de import em que isso é possível).
+//
+// Tipografia (design-system §6): Exo 2 para títulos, Open Sans para o corpo.
+// Aqui só o CORPO/UI é trocado — os títulos ganham Exo 2 em custom.scss,
+// seletor a seletor, porque o tema usa a mesma escala de tamanho para título
+// E para elementos pequenos (nav, rótulo) e o design-system proíbe Exo 2
+// abaixo de 18px (§6.4). Ver custom.scss para o porquê h3–h6 ficam de fora.
+//
+// $body-font-family e $mono-font-family aceitam a string de var() porque
+// nenhum lugar do tema aplica função de cor/número do Sass sobre elas — são
+// só despejadas como valor de `font-family`, então usar a custom property é
+// seguro aqui (diferente do que acontece em color_schemes/v3rsec.scss).
+$body-font-family: var(--v3r-font-corpo);
+$mono-font-family: var(--v3r-font-mono);

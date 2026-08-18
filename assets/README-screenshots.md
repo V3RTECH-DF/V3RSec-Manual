@@ -15,9 +15,20 @@ Viewport preferencial: **desktop 1920x1080**; onde indicado, também **mobile 37
 | `saude-alvos-02.png` | Saúde dos alvos (`/`) | mobile (375px) | Mesma tela adaptada ao celular (validação mobile-first). |
 | `fila-ocorrencias-01.png` | Fila de ocorrências (`/ocorrencias`) | desktop | Fila com itens de ocorrência (severidade, classe, status) e filtros. |
 | `central-notificacoes-01.png` | Central de notificações (`/notificacoes`) | desktop | Lista de avisos com estado lido/não-lido. |
-| `bootstrap-logto-01.png` | Console admin do Logto (`http://localhost:3302`) | desktop | Passo de criação da primeira conta admin. |
-| `bootstrap-logto-02.png` | Console admin do Logto | desktop | Criação da organização (tenant V3RTECH). |
-| `bootstrap-logto-03.png` | Console admin do Logto | desktop | Registro do API Resource (`urn:v3rsec:api`). |
+| `bootstrap-logto-01.png` | Console admin do Logto (`http://admin.localhost:3302`), primeiro acesso | desktop | Criação da primeira conta admin do Logto. **Pendente** — só existe no primeiro acesso a uma instância nova; reproduzir exige zerar o Logto atual (ver nota na própria página). |
+| `bootstrap-logto-02.png` ✅ | `/console/organizations/or2ivomanag5/settings` | desktop | Capturado em 18/08/2026, v0.1.0. Configurações da organização V3RTECH, Nome e Descrição preenchidos. |
+| `bootstrap-logto-03.png` ✅ | `/console/organization-template/organization-roles` | desktop | Capturado em 18/08/2026, v0.1.0. Lista com os três papéis de organização (`admin_plataforma`, `operador_seguranca`, `visualizador`). |
+| `bootstrap-logto-04.png` ✅ | `/console/users/<id>/settings` | desktop | Capturado em 18/08/2026, v0.1.0. Perfil do usuário criado para o V3RSec, com e-mail visível (dono do ambiente, captura autorizada). |
+| `bootstrap-logto-05.png` ✅ | `/console/organizations/or2ivomanag5/members` | desktop | Capturado em 18/08/2026, v0.1.0. Membro da organização com o menu de ações aberto (Edit organization roles). |
+| `bootstrap-logto-06.png` ✅ | `/console/applications` | desktop | Capturado em 18/08/2026, v0.1.0. Lista de aplicativos com o V3RSec PWA, tipo Single Page App. |
+| `bootstrap-logto-07.png` ✅ | `/console/applications/<id>/settings` | desktop | Capturado em 18/08/2026, v0.1.0. Redirect URIs, post-sign-out e CORS allowed origins preenchidos (porta 8081). |
+| `bootstrap-logto-08.png` ✅ | `/console/api-resources/<id>/settings` | desktop | Capturado em 18/08/2026, v0.1.0. Identificador `urn:v3rsec:api` preenchido. |
+
+Capturas ✅ feitas com o console já configurado nesta instância (organização, papéis, app e
+API resource já existiam de uma sessão de bootstrap anterior) — por isso ilustram o
+**resultado** de cada passo de criação, não o diálogo de criação vazio em si. Nenhuma tela
+teve dado pessoal de terceiro exposto; o único e-mail visível (`bootstrap-logto-04.png`) é
+do dono do próprio ambiente, autorizado pelo enunciado da tarefa.
 
 ## Observações
 
